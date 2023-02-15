@@ -1,0 +1,153 @@
+<html>
+
+<head>
+
+<title>Form Validation</title>
+
+<scripttype = "text/javascript">
+
+functionvalidate() {
+
+var text;
+
+if( document.myForm.name.value == "" ) {
+
+text = "Name cannot be empty";
+
+document.getElementById("demo").innerHTML = text;
+
+document.myForm.name.focus() ;
+
+returnfalse;
+
+}
+
+if( document.myForm.email.value == "" ) {
+
+text = "E-mail cannot be empty";
+
+document.getElementById("demo").innerHTML = text;
+
+document.myForm.email.focus() ;
+
+returnfalse;
+
+}
+
+var emailID = document.myForm.email.value;
+
+atposn = emailID.indexOf("@");
+
+dotposn = emailID.lastIndexOf(".");
+
+if (atposn < 1 || ( dotposn - atposn < 2 )) {
+
+text = "Please enter valid email ID";
+
+document.getElementById("demo").innerHTML = text;
+
+document.myForm.email.focus() ;
+
+returnfalse;
+
+}
+
+if( document.myForm.phone.value == "" || isNaN( document.myForm.phone.value ) ||
+
+document.myForm.phone.value.length != 10 ) {
+
+text = "Please enter a valid 10-digit phone number";
+
+document.getElementById("demo").innerHTML = text;
+
+document.myForm.phone.focus() ;
+
+returnfalse;
+
+}
+
+if( document.myForm.subject.value == "0" ) {
+
+text = "Please provide your area of expertise";
+
+document.getElementById("demo").innerHTML = text;
+
+returnfalse;
+
+}
+
+return( true );
+
+}
+
+</script>
+
+</head>
+
+<body>
+
+<formaction = ""name = "myForm"onsubmit = "return(validate());">
+
+<h1align="center">USER REGISTRATION</H1>
+
+<tablealign="center"cellspacing = "3"cellpadding = "3"border = "3">
+
+<tr>
+
+<tdalign = "right">Name</td>
+
+<td><inputtype = "text"name = "name" /></td>
+
+</tr>
+
+<tr>
+
+<tdalign = "right">E-mail</td>
+
+<td><inputtype = "text"name = "email" /></td>
+
+</tr>
+
+<tr>
+
+<tdalign = "right">Phone Number</td>
+
+<td><inputtype = "text"name = "phone" /></td>
+
+</tr>
+
+<tr>
+
+<tdalign = "right">Subject</td>
+
+<td>
+
+<selectname = "subject">
+
+<optionvalue = "0"selected>Select</option>
+
+<optionvalue = "1">HTML</option>
+
+<optionvalue = "2">JavaScript</option>
+
+<optionvalue = "3">CSS</option>
+
+<optionvalue = "4">JSP</option>
+
+</select>
+
+</td>
+
+</tr>
+
+</table>
+
+<pid="demo"style="color:red; text-align:center"></p>
+
+<divstyle="text-align:center"><inputtype = "submit"value = "Submit" /></div>
+
+</form>
+
+</body>
+
+</html>
